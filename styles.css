@@ -1,0 +1,142 @@
+/********************************Part 1***************************************/
+
+#hover-button {
+  width: 90px;
+  height: 90px;
+  background-color: #aa0462; /*magenta*/
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0 5px 0;
+  transition: background-color 0.4s ease, transform 0.2s ease-in;
+}
+
+#hover-button:hover {
+  color: black;
+  background-color: #7107cd; /*purple*/
+  border-radius: 50px;
+  transform: scale(1.2);   /*increasing size hover button*/
+}
+
+#ball {
+  width: 60px;
+  height: 60px;
+  background-color: aquamarine;
+  border-radius: 50%;
+  animation: bounce 2s ease-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+}
+
+/********************************Part 2***************************************/
+
+p {
+    color: orangered;
+    font-size: 20px;
+}
+
+#slide-button {
+    color: lightblue;
+    padding: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgb(69, 66, 66, 0.9); /*gray*/
+    cursor: pointer;
+}
+
+#sliding-box {
+  width: 50px;
+  height: 50px;
+  background-color: #87f81d; /*light green*/
+}
+
+#sliding-box.animate {
+  animation: moveRight 2s ease-out forwards, moveAndGrow 2s ease-in-out infinite alternate;
+  transform: scale(1.2) translateX(0); /*default transform*/
+}
+
+
+@keyframes moveRight {
+  0% { transform: scale(1.2) translateX(0); }
+  100% { transform: scale(1.2) translateX(600px); }
+}
+
+@keyframes moveAndGrow {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: translateX(600px) scale(2); /*slide and grow*/
+  }
+}
+
+/********************************Part 3***************************************/
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#modal.show {
+  display: flex;
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+#modal.hide {
+  animation: fadeOut 0.4s ease-in forwards;
+}
+
+#modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 250px;
+  position: relative;
+}
+
+#close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: red;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
